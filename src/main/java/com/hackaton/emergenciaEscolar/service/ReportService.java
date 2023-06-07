@@ -1,5 +1,8 @@
 package com.hackaton.emergenciaEscolar.service;
 import com.hackaton.emergenciaEscolar.model.Report;
+import com.twilio.Twilio;
+import com.twilio.rest.api.v2010.account.Message;
+import com.twilio.rest.messaging.v1.service.PhoneNumber;
 import jakarta.mail.MessagingException;
 import jakarta.mail.internet.MimeMessage;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,12 +23,17 @@ public class ReportService {
     private String emailSender;
     @Value("${email.receiver}")
     private String emailReceiver;
+    @Value("${twilio.accountSid}")
+    private String twilioAccountSid;
+    @Value("${twilio.authToken}")
+    private String twilioAuthToken;
+
     @Autowired
     public ReportService(JavaMailSender mailSender) {
         this.mailSender = mailSender;
     }
 
-    public String sendReportByEmail(Report report) {
+    public String sendReportByEmailAndWhatsapp(Report report) {
         try {
             MimeMessage message = mailSender.createMimeMessage();
             MimeMessageHelper helper = new MimeMessageHelper(message, true);
@@ -40,9 +48,16 @@ public class ReportService {
             }
 
             mailSender.send(message);
-            return "Email report sent.";
+
+            Twilio.init(twilioAccountSid, twilioAuthToken);
+            Message messageWhatsapp = Message.creator(
+                    new com.twilio.type.PhoneNumber(System.getenv("NUMBER_RECEIVER")),
+                    new com.twilio.type.PhoneNumber(System.getenv("NUMBER_BOT")),
+                    report.getInformation()).create();
+
+            return "Email and Whatsapp report sent.";
         } catch (MessagingException e) {
-            return "Failed to send report email.";
+            return "Failed to send report.";
         }
     }
 

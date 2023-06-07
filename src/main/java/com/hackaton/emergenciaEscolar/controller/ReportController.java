@@ -13,11 +13,10 @@ public class ReportController {
 
     private final ReportService reportService;
 
-
     @PostMapping("/report")
     @ResponseStatus(HttpStatus.OK)
     public String sendReport(@ModelAttribute Report report) {
-        return reportService.sendReportByEmail(report);
+        return reportService.sendReportByEmailAndWhatsapp(report);
     }
 
 }
