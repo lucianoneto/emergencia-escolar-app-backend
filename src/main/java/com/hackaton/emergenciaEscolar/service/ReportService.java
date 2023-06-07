@@ -1,8 +1,8 @@
 package com.hackaton.emergenciaEscolar.service;
+
 import com.hackaton.emergenciaEscolar.model.Report;
 import com.twilio.Twilio;
 import com.twilio.rest.api.v2010.account.Message;
-import com.twilio.rest.messaging.v1.service.PhoneNumber;
 import jakarta.mail.MessagingException;
 import jakarta.mail.internet.MimeMessage;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +18,6 @@ import java.util.Objects;
 public class ReportService {
 
     private final JavaMailSender mailSender;
-
     @Value("${spring.mail.username}")
     private String emailSender;
     @Value("${email.receiver}")
