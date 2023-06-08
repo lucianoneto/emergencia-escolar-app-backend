@@ -2,9 +2,9 @@
 Esta aplicação Java é um protótipo de emergência escolar desenvolvido no Hackathon Campus Party Goiás 2023, que permite aos usuários enviar pedidos de emergência ou denúncias anônimas para uma equipe de atendimento. 
 A aplicação recebe dados de localização, ou dados da denúncia junto com arquivos (fotos, vídeos, audios, etc) por meio de uma API REST e envia notificações por E-mail e WhatsApp para a equipe de atendimento.
 
-## 💻 Technologies
+## 💻 Tecnologias
 
-In the development of this software was used: 
+No desenvolvimento dessa aplicação foi utilizado: 
 
 - Java 17
 - Maven
