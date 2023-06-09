@@ -52,7 +52,7 @@ public class ReportService {
             Message messageWhatsapp = Message.creator(
                     new com.twilio.type.PhoneNumber(System.getenv("NUMBER_RECEIVER")),
                     new com.twilio.type.PhoneNumber(System.getenv("NUMBER_BOT")),
-                    report.getInformation()).create();
+                    ("Denúncia\n" + report.getInformation())).create();
 
             return "Email and Whatsapp report sent.";
         } catch (MessagingException e) {

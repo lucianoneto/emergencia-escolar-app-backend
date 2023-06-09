@@ -56,7 +56,7 @@ public class EmergencyService {
             helper.setFrom(emailSender);
             helper.setTo(emailReceiver);
             helper.setSubject("EMERGÊNCIA");
-            helper.setText(messageToSend);
+            helper.setText("AVISO DE POSSÍVEL ATENTADO ESCOLAR - SOLICITAÇÃO DE ASSISTÊNCIA POLICIAL IMEDIATAMENTE! \n" + messageToSend);
 
             mailSender.send(message);
 
