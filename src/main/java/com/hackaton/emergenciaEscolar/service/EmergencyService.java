@@ -39,7 +39,7 @@ public class EmergencyService {
 
         Double latitude = emergency.getLatitude();
         Double longitude = emergency.getLongitude();
-        String mapsLink = String.format("https://www.google.com/maps?q=" + latitude.toString() + "," + longitude.toString());
+        String mapsLink = String.format("https://www.google.com/maps/search/?api=1&query=" + latitude.toString() + "," + longitude.toString());
 
         String subRegion = emergency.getSubRegion();
         String region = emergency.getRegion();
