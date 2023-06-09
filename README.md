@@ -1,4 +1,4 @@
-# 🏫🚓 Emergência Escolar - Backend
+# 🚨📱 Emergência Escolar - Backend
 Esta aplicação Java é um protótipo de emergência escolar desenvolvido no Hackathon Campus Party Goiás 2023, que permite aos usuários enviar pedidos de emergência ou denúncias anônimas para uma equipe de atendimento. 
 A aplicação recebe dados de localização, ou dados da denúncia junto com arquivos (fotos, vídeos, audios, etc) por meio de uma API REST e envia notificações por E-mail e WhatsApp para a equipe de atendimento.
 
@@ -25,7 +25,7 @@ No desenvolvimento dessa aplicação foi utilizado:
 
   `EMAIL_PASSWORD` - Senha do e-mail remetente.
 
-  `EMAIL_SENDER` - E-mail destinatário.
+  `EMAIL_RECEIVER` - E-mail destinatário.
 
   `MAIL_TRUST_HOST` - Servidor do e-mail utilizado.
 
@@ -40,5 +40,9 @@ No desenvolvimento dessa aplicação foi utilizado:
   `TWILIO_SID` - Sid da conta Twilio.
 
   `TWILIO_TOKEN` - Token da conta Twilio.
-
+  
+  `NUMBER_BOT` - Número registrado na conta Twilio.
+  
+  `NUMBER_RECEIVER` - Número para enviar a mensagem no Whatsapp.
+  
   `MAX_SIZE` - Tamanho máximo de arquivos a serem enviados na aplicação.
