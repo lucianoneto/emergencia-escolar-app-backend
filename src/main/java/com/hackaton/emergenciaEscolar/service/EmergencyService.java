@@ -47,7 +47,8 @@ public class EmergencyService {
         String district = emergency.getDistrict();
         String streetNumber = emergency.getStreetNumber();
 
-        String messageToSend = ("Endereço: " + street + ", " + streetNumber + ", " + district + ". " + subRegion + ", " + region + "." + "\n" +
+        String messageToSend = ("AVISO DE POSSÍVEL ATENTADO ESCOLAR - SOLICITAÇÃO DE ASSISTÊNCIA POLICIAL IMEDIATAMENTE! \n\n" +
+                "Endereço: " + street + ", " + streetNumber + ", " + district + ". " + subRegion + ", " + region + "." + "\n\n" +
                 "Link para localização: " + mapsLink);
         try {
             MimeMessage message = mailSender.createMimeMessage();
@@ -56,7 +57,7 @@ public class EmergencyService {
             helper.setFrom(emailSender);
             helper.setTo(emailReceiver);
             helper.setSubject("EMERGÊNCIA");
-            helper.setText("AVISO DE POSSÍVEL ATENTADO ESCOLAR - SOLICITAÇÃO DE ASSISTÊNCIA POLICIAL IMEDIATAMENTE! \n" + messageToSend);
+            helper.setText(messageToSend);
 
             mailSender.send(message);
 
